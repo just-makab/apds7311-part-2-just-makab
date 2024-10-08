@@ -1,4 +1,6 @@
-# International Payments Portal Security Measures
+# Horizon Capital
+
+## International Payments Portal Security Measures
 
 This repository details the security features implemented to safeguard the International Payments Portal. Below is a breakdown of the tools and methods used to protect the system from various vulnerabilities and attacks.
 
