@@ -1,9 +1,9 @@
 import https from "https";
 import fs from "fs";
-import posts from "./routes/post.mjs";
+import customerRoutes from "./routes/customer.mjs";
 import users from "./routes/user.mjs";
 import express from "express"
-import rateLimit from 'express-rate-limit'; //Tool to reduce effect from DDos Attack
+import rateLimit from 'express-rate-limit';
 import helmet from "helmet";
 import cors from "cors"
 
@@ -35,8 +35,8 @@ app.use((reg,res,next)=>
     next();
 })
  
-//app.use("/post", posts);
-//app.route("/post", posts);
+app.use("/customer", customerRoutes);
+app.route("/customer", customerRoutes);
 app.use("/user", users);
 app.route("/user", users);
 
