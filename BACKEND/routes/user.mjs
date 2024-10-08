@@ -91,7 +91,7 @@ router.post("/login", bruteforce.prevent, async (req, res) => {
                 "this_secret_should_be_longer_than_it_is",
                 { expiresIn: "30m" }
             );
-            res.status(200).json({ message: "Authentication successful", accountNumber: accountNumber, name: name });
+            res.status(200).json({ message: "Authentication successful", accountNumber: accountNumber, name: name,  accountNumber: user.accountNumber });
         }
     } catch (error) {
         console.error("Login error:", error);

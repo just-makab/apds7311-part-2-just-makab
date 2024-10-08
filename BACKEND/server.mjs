@@ -1,6 +1,6 @@
 import https from "https";
 import fs from "fs";
-//import posts from "./routes/post.mjs";
+import posts from "./routes/post.mjs";
 import users from "./routes/user.mjs";
 import express from "express"
 import rateLimit from 'express-rate-limit'; //Tool to reduce effect from DDos Attack
