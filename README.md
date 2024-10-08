@@ -1,8 +1,10 @@
-# International Payments Portal Security Measures
+# Horizon Capital
+
+## International Payments Portal Security Measures
 
 This repository details the security features implemented to safeguard the International Payments Portal. Below is a breakdown of the tools and methods used to protect the system from various vulnerabilities and attacks.
 
-## Security Tools and Methods
+### Security Tools and Methods
 
 1. Express-brute - DDos and Brute-force Attack Prevention
 Purpose: Express-brute provides protection against brute-force login attempts and Distributed Denial of Service (DDoS) attacks by limiting the number of login attempts a user can make within a specific time period.
