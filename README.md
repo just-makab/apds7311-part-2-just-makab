@@ -1,43 +1,34 @@
-# Horizon Capital
+# International Payments Portal Security Measures
 
-Payment Portal Security Guidelines
-This document outlines the best practices to protect the bank’s international payment portal and secure the system against potential threats. These methods have been identified as crucial to safeguarding sensitive financial data and ensuring secure transactions.
+This repository details the security features implemented to safeguard the International Payments Portal. Below is a breakdown of the tools and methods used to protect the system from various vulnerabilities and attacks.
 
-Method 1: Multi-Factor Authentication (MFA)
-Objective: Ensure that only authorized employees can access the payment portal.
-•	Implementation: Use MFA to add an extra layer of security by requiring users to provide multiple credentials—such as something they know (password), something they have (smart token or mobile app), and something they are (biometric verification).
-•	Benefits:
-o	Protects against password theft or brute-force attacks.
-o	Adds an additional security layer that reduces the risk of unauthorized access.
-•	Steps to Secure:
-o	Enforce mandatory MFA on all employee accounts.
-o	Utilize time-sensitive One-Time Passwords (OTP) or biometric verification.
-o	Ensure mobile and hardware tokens used for authentication are frequently updated.
+## Security Tools and Methods
 
-Method 2: Data Encryption
-Objective: Safeguard sensitive transaction data as it is transmitted and stored.
-•	Implementation: Encrypt both data at rest (stored in the database) and data in transit (being sent to and from the portal) using industry-standard encryption protocols (e.g., AES-256 for data at rest, TLS 1.3 for data in transit).
-•	Benefits:
-o	Prevents unauthorized users from accessing or tampering with sensitive financial data.
-o	Ensures that even if data is intercepted, it cannot be read without the encryption key.
-•	Steps to Secure:
-o	Use strong encryption algorithms (AES-256, TLS 1.3) for all sensitive data.
-o	Regularly rotate encryption keys and manage them securely using a Key Management System (KMS).
-o	Encrypt SWIFT transactions, payee information, and employee credentials.
+1. Express-brute - DDos and Brute-force Attack Prevention
+Purpose: Express-brute provides protection against brute-force login attempts and Distributed Denial of Service (DDoS) attacks by limiting the number of login attempts a user can make within a specific time period.
+- Brute-force Protection: If a user makes too many failed login attempts, their account is temporarily blocked, preventing automated systems from guessing passwords.
+- DDoS Mitigation: Limits excessive requests from a single IP address, reducing the risk of the server being overwhelmed by traffic.
 
-Method 3: Role-Based Access Control (RBAC)
-Objective: Limit employee access based on their job role, ensuring only necessary personnel can approve transactions or access sensitive data.
-•	Implementation: Use Role-Based Access Control to assign permissions to employees based on their role within the bank. Each role will have access only to the resources and actions necessary to perform their job functions.
-•	Benefits:
-o	Minimizes the risk of accidental or malicious data exposure.
-o	Reduces the attack surface by limiting access to critical functions.
-•	Steps to Secure:
-o	Define roles and permissions strictly—e.g., only employees in the Payments Department can forward transactions to SWIFT.
-o	Implement a policy to review access rights periodically and revoke them when no longer needed.
-o	Use audit logs to track actions performed by each user based on their role.
+2. express-rate-limit - DDoS Prevention with User Input Limiting
+Purpose: This middleware limits the number of transactions a user can perform within a specified timeframe, thus mitigating potential DDoS attacks.
+- Transaction Limits: Users can submit a maximum of 100 transactions every 15 minutes. This prevents malicious actors from overwhelming the system with a high volume of requests.
+- DDoS Defense: By controlling the rate at which requests are made, the system can prevent attacks aimed at exhausting server resources.
 
-Conclusion
-By implementing these methods—Multi-Factor Authentication, Data Encryption, and Role-Based Access Control—the payment portal will be significantly more secure against unauthorized access, data breaches, and other cyber threats. It is essential to regularly update these security measures and monitor the system for vulnerabilities to ensure ongoing protection.
+3. Helmet - Clickjacking, Session Hijacking, and XSS Security
+Purpose: Helmet is a collection of middleware functions that enhances the security of Express applications by setting HTTP headers appropriately.
+- Clickjacking Protection: Helmet prevents attackers from embedding the portal in an iframe, which could otherwise be used to trick users into performing unintended actions.
+- Session Hijacking: By managing headers and session configurations, Helmet helps prevent unauthorized access to user sessions.
+- Cross-Site Scripting (XSS) Protection: XSS attacks inject malicious scripts into web pages viewed by other users. Helmet ensures that security headers like `Content-Security-Policy` (CSP) are correctly configured to block the execution of unauthorized scripts.
+
+4. jsonwebtoken - Man-in-the-Middle Attack Prevention with Tokens
+Purpose: JSON Web Token (JWT) is used to securely transmit information between parties, protecting the communication from Man-in-the-Middle (MitM) attacks.
+- Token-based Authentication: When users log in, they receive a token that verifies their identity for a limited time (15 minutes).
+- Expiration: Tokens expire after 15 minutes, requiring users to reauthenticate, which minimizes the risk of session hijacking.
+- MitM Defense: JWT tokens are signed and verified, ensuring that any unauthorized attempt to intercept or modify the token will be detected.
+
+## Conclusion
+
+These security mechanisms work together to protect the International Payments Portal from a wide array of potential threats, ensuring that user data and transactions remain safe.
 
 ## Contributors:
 
