@@ -1,8 +1,4 @@
-Akhona Mbatha: ST10083153
-Makabongwe Sibisi: ST10145439
-Khulekani Kubheka: ST10033782
-Lwazi Zuma : ST10179039
-Ntobeko Gumede ST10205048
+#Horizon Capital
 
 Payment Portal Security Guidelines
 This document outlines the best practices to protect the bank’s international payment portal and secure the system against potential threats. These methods have been identified as crucial to safeguarding sensitive financial data and ensuring secure transactions.
@@ -42,4 +38,14 @@ o	Use audit logs to track actions performed by each user based on their role.
 
 Conclusion
 By implementing these methods—Multi-Factor Authentication, Data Encryption, and Role-Based Access Control—the payment portal will be significantly more secure against unauthorized access, data breaches, and other cyber threats. It is essential to regularly update these security measures and monitor the system for vulnerabilities to ensure ongoing protection.
+
+## Contributors:
+
+1. Akhona Mbatha: ST10083153
+2. Makabongwe Sibisi: ST10145439
+3. Khulekani Kubheka: ST10033782
+4. Lwazi Zuma : ST10179039
+5. Ntobeko Gumede ST10205048
+
+
 
