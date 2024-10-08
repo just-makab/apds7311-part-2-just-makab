@@ -1,4 +1,10 @@
 # Horizon Capital
+A simple Mock Banking app :)
+
+- [x] Login
+- [X] Register
+- [X] Customer Portal
+- [ ] Employee Portal
 
 ## International Payments Portal Security Measures
 
