@@ -1,4 +1,4 @@
-#Horizon Capital
+# Horizon Capital
 
 Payment Portal Security Guidelines
 This document outlines the best practices to protect the bank’s international payment portal and secure the system against potential threats. These methods have been identified as crucial to safeguarding sensitive financial data and ensuring secure transactions.
