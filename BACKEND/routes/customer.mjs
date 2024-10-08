@@ -1,7 +1,7 @@
 import express from "express";
 import { ObjectId } from "mongodb";
 import db from "../db/conn.mjs";
-import checkauth from "../middleware/checkauth.mjs";
+import checkauth from "../check-auth.mjs"
 import sanitize from "mongo-sanitize";
 
 const router = express.Router();
