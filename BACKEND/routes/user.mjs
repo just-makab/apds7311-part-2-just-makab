@@ -56,7 +56,7 @@ router.post("/signup", async (req, res) => {
             password: hashedPassword,
             idNumber: idNumber,
             accountNumber: accountNumber,
-            role: "customer" // Default role assignment
+            role: "customer"
         };
 
         // Insert new user into database

@@ -1,6 +1,7 @@
 import https from "https";
 import fs from "fs";
 import customerRoutes from "./routes/customer.mjs";
+import employeeRoutes from "./routes/employee.mjs"
 import users from "./routes/user.mjs";
 import express from "express"
 import rateLimit from 'express-rate-limit';
@@ -27,7 +28,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.use((reg,res,next)=>
+app.use((req,res,next)=>
 {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', '*');
@@ -36,9 +37,8 @@ app.use((reg,res,next)=>
 })
  
 app.use("/customer", customerRoutes);
-app.route("/customer", customerRoutes);
 app.use("/user", users);
-app.route("/user", users);
+app.use("/employee", employeeRoutes);
 
 let server = https.createServer(options,app)
 console.log(`Server is running on https://localhost:${PORT}`);

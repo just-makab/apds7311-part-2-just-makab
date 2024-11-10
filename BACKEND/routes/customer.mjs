@@ -1,13 +1,15 @@
 import express from "express";
 import { ObjectId } from "mongodb";
 import db from "../db/conn.mjs";
-import checkauth from "../check-auth.mjs"
+import checkauth, { checkRole } from "../check-auth.mjs";
 import sanitize from "mongo-sanitize";
 
 const router = express.Router();
 
 // Use the authentication middleware for all routes in this router
 router.use(checkauth);
+router.use(checkRole("customer"));
+
 
 // Insert Transaction (Create a transaction with Provider)
 router.post("/createTransaction", async (req, res) => {
@@ -22,7 +24,7 @@ router.post("/createTransaction", async (req, res) => {
 
         // Validate that all necessary fields are provided
         if (!receiverAccountNumber || !swiftCode || !amount || !currency || !provider) {
-            return res.status(400).json({ message: "All fields, including provider, are required." });
+            return res.status(400).json({ message: "All fields, are required." });
         }
 
         // Create new transaction object
