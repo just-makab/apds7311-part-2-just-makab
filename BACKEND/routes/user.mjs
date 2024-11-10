@@ -10,7 +10,7 @@ const { ObjectID } = pkg;
 const router = express.Router();
 
 // Regex patterns for validation
-const USERNAME_REGEX = /^[a-zA-Z0-9_]{3,20}$/;
+const NAME_REGEX = /^[a-zA-Z0-9_]{3,20}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 const IDNUMBER_REGEX = /^\d{13}$/;
 const ACCOUNTNUMBER_REGEX = /^\d{8,12}$/;
@@ -20,22 +20,22 @@ router.post("/signup", async (req, res) => {
     const { name, password, idNumber, accountNumber } = req.body;
 
     // Validate username
-    if (!USERNAME_REGEX.test(name)) {
+    if (!NAME_REGEX.test(name.trim())) {
         return res.status(400).json({ message: "Invalid username. It should be 3-20 characters long and can only contain letters, numbers, and underscores." });
     }
 
     // Validate password
-    if (!PASSWORD_REGEX.test(password)) {
+    if (!PASSWORD_REGEX.test(password.trim())) {
         return res.status(400).json({ message: "Invalid password. It should be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character." });
     }
 
     // Validate ID Number
-    if (!IDNUMBER_REGEX.test(idNumber)) {
+    if (!IDNUMBER_REGEX.test(idNumber.trim())) {
         return res.status(400).json({ message: "Invalid ID number. It must be exactly 13 digits long." });
     }
 
     // Validate Account Number
-    if (!ACCOUNTNUMBER_REGEX.test(accountNumber)) {
+    if (!ACCOUNTNUMBER_REGEX.test(accountNumber.trim())) {
         return res.status(400).json({ message: "Invalid account number. It must be between 8 and 12 digits long." });
     }
 

@@ -37,6 +37,7 @@ app.use((req,res,next)=>
 })
  
 app.use("/customer", customerRoutes);
+app.route("/user", users)
 app.use("/user", users);
 app.use("/employee", employeeRoutes);
 
