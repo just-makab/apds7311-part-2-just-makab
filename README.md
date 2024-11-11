@@ -40,6 +40,7 @@ Register
 
 Endpoint: /register
 Method: POST
+```
 Request Body:
 {
     "name": "Employee6",
@@ -47,10 +48,12 @@ Request Body:
     "accountNumber": "10000006",
     "idNumber": "1000000000006"
 }
+```
 Login
 
 Endpoint: /login
 Method: POST
+```
 Request Body:
 {
     "name": "Employee6",
@@ -58,7 +61,7 @@ Request Body:
     "password": "P@ssw0rd",
   
 }
-
+```
 ## Conclusion
 
 These security mechanisms work together to protect the International Payments Portal from a wide array of potential threats, ensuring that user data and transactions remain safe.
