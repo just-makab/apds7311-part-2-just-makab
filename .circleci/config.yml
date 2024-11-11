@@ -20,7 +20,9 @@ jobs:
     steps:
       - run:
           name: Install utilities
-          command: npm install
+          command: |
+            cd BACKEND
+            npm install
       - run:
           name: Start Server
           command: npm start &
