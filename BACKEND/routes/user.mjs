@@ -3,14 +3,14 @@ import db from "../db/conn.mjs";
 import pkg from 'mongodb';
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import bruteforce from "../middleware/bruteforce.mjs"; // Import brute force protection
+import bruteforce from "../middleware/bruteforce.mjs";
 
 
 const { ObjectID } = pkg;
 const router = express.Router();
 
 // Regex patterns for validation
-const NAME_REGEX = /^[a-zA-Z0-9_]{3,20}$/;
+const NAME_REGEX = /^\w{3,20}$/;
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 const IDNUMBER_REGEX = /^\d{13}$/;
 const ACCOUNTNUMBER_REGEX = /^\d{8,12}$/;
@@ -91,7 +91,7 @@ router.post("/login", bruteforce.prevent, async (req, res) => {
                 "this_secret_should_be_longer_than_it_is",
                 { expiresIn: "30m" }
             );
-            res.status(200).json({ message: "Authentication successful", accountNumber: accountNumber, name: name,  accountNumber: user.accountNumber });
+            res.status(200).json({ message: "Authentication successful", accountNumber: accountNumber, name: name, });
         }
     } catch (error) {
         console.error("Login error:", error);

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { login } from '../../api'; // Your API call
 import { useNavigate } from 'react-router-dom';
+import "bootstrap"
 
 const Login = ({ setToken }) => {
     const [accountNumber, setAccountNumber] = useState('');
@@ -47,7 +48,7 @@ const Login = ({ setToken }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button className='btn btn-success' type="submit">Login</button>
             </form>
             {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error */}
         </div>

@@ -1,5 +1,6 @@
 // src/api.js
 import axios from 'axios';
+import "./../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const API_URL = 'https://localhost:3001';
 
