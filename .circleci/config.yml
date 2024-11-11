@@ -20,8 +20,10 @@ jobs:
     steps:
       - run:
           name: Install utilities
-          command: apt-get update && apt-get install -y findutils
-      - run: find .
+          command: npm install
+      - run:
+          name: Start Server
+          command: npm start &
       - attach_workspace:
           at: ~/workspace
       - run: | 
@@ -37,9 +39,32 @@ jobs:
           -Dsonar.branch.name="$SONAR_BRANCH" \
           -Dsonar.sources="."
 
-# Define workflows to orchestrate jobs.
+          
+  newmantest:
+    docker:
+      - image: cimg/node:18.20.2
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            cd BACKEND
+            npm install
+      - run:
+          name: Run Newman tests
+          command: |
+            cd BACKEND
+            npm run test-api &
+      - attach_workspace:
+          at: ~/workspace
+
 workflows:
-  say-hello-workflow:
+  version: 2
+  sonar_workflow:
     jobs:
-      - say-hello
       - sonarqube
+      - newmantest:
+          requires:
+            - sonarqube
+

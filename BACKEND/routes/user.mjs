@@ -68,9 +68,9 @@ router.post("/signup", async (req, res) => {
     }
 });
 
-// User Login Route with Brute Force Protection
+// User Login Route with Brute Force Protectio
 router.post("/login", bruteforce.prevent, async (req, res) => {
-    const { accountNumber , name, password } = req.body;
+    const { accountNumber, name, password } = req.body;
 
     try {
         const collection = await db.collection("users");
@@ -85,13 +85,26 @@ router.post("/login", bruteforce.prevent, async (req, res) => {
         if (!passwordMatch) {
             return res.status(401).json({ message: "Authentication failed" });
         } else {
-            // Generate JWT token valid for 30 mins
+            // Generate JWT token valid for 30 mins with user ID, account, and role
             const token = jwt.sign(
-                { username: name, role: user.role },
+                {
+                    userId: user._id,
+                    username: name,
+                    accountNumber: user.accountNumber,
+                    role: user.role
+                },
                 "this_secret_should_be_longer_than_it_is",
                 { expiresIn: "30m" }
             );
-            res.status(200).json({ message: "Authentication successful", accountNumber: accountNumber, name: name, });
+
+            res.status(200).json({
+                message: "Authentication successful",
+                token,
+                userId: user._id,
+                name: name,
+                accountNumber: accountNumber,
+                role: user.role
+            });
         }
     } catch (error) {
         console.error("Login error:", error);

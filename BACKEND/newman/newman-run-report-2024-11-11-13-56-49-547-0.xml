@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="HC Tests" tests="4" time="1.686">
+  <testsuite name="https://localhost:3001/User/Signup" id="29995f25-2382-4278-80d1-a1498c1a3aca" timestamp="2024-11-11T13:56:47.540Z" tests="0" failures="0" errors="0" time="0.743"/>
+  <testsuite name="https://localhost:3001/User/Login(customer)" id="bdf27bac-54df-4d82-bada-93812a47918d" timestamp="2024-11-11T13:56:47.540Z" tests="0" failures="0" errors="0" time="0.464"/>
+  <testsuite name="https://localhost:3001/User/Login(Employee)" id="8e008d3c-c16c-4f7f-a084-07d21ec97a07" timestamp="2024-11-11T13:56:47.540Z" tests="0" failures="0" errors="0" time="0.466"/>
+  <testsuite name="https://localhost:3001/employee/transactions(authorised)" id="d6ad3486-3fea-4341-8fa7-e2996e4f0216" timestamp="2024-11-11T13:56:47.540Z" tests="0" failures="0" errors="0" time="0.013"/>
+</testsuites>

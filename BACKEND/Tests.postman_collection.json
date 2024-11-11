@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "b16e5ed3-f15f-4fc5-a851-83134588c9f0",
+		"name": "HC Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37293831"
+	},
+	"item": [
+		{
+			"name": "https://localhost:3001/User/Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"CustomerTest4\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"accountNumber\": \"00000004\",\r\n    \"idNumber\": \"0000000000004\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/User/Signup",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"User",
+						"Signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/User/Login(customer)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"CustomerTest3\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"accountNumber\": \"00000003\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/User/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"User",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/User/Login(Employee)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Employee6\",\r\n    \"accountNumber\": \"10000006\",\r\n    \"password\": \"P@ssw0rd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/User/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"User",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transactions(authorised)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxYjE1Y2M4YmI0NTk3MDg1ZmM3OWEiLCJ1c2VybmFtZSI6IkVtcGxveWVlNiIsImFjY291bnROdW1iZXIiOiIxMDAwMDAwNiIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTczMTMxOTEwMywiZXhwIjoxNzMxMzIwOTAzfQ.mPalTqBouFkMpzfmt5-82-cREfQUG06HGopFukvO3aY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:3001/employee/transactions",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
