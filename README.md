@@ -43,10 +43,10 @@ Method: POST
 ```
 Request Body:
 {
-    "name": "Employee6",
+    "name": "CustomerTest4",
     "password": "P@ssw0rd",
-    "accountNumber": "10000006",
-    "idNumber": "1000000000006"
+    "accountNumber": "00000004",
+    "idNumber": "0000000000004"
 }
 ```
 # Login Employee
