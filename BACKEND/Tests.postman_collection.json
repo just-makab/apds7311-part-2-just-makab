@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b16e5ed3-f15f-4fc5-a851-83134588c9f0",
-		"name": "HC Tests",
+		"name": "Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37293831"
 	},
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"CustomerTest4\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"accountNumber\": \"00000004\",\r\n    \"idNumber\": \"0000000000004\"\r\n}\r\n",
+					"raw": "{\r\n    \"name\": \"CustomerTest6\",\r\n    \"password\": \"P@ssw0rd\",\r\n    \"accountNumber\": \"00000006\",\r\n    \"idNumber\": \"0000000000006\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -125,6 +125,375 @@
 					"path": [
 						"employee",
 						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/customer/createTransaction(invalidToken)",
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"receiverAccountNumber\": \"000000001\",\r\n\"swiftCode\": \"ABCDEFGH\",\r\n\"amount\": 1000,\r\n\"currency\": \"USD\",\r\n\"provider\": \"TransferCorp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/customer/createTransaction",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"customer",
+						"createTransaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/customer/createTransaction(validToken)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxZDMwZDcxZWMwZTE1MWNlNGE2ODkiLCJ1c2VybmFtZSI6IkN1c3RvbWVyVGVzdDMiLCJhY2NvdW50TnVtYmVyIjoiMDAwMDAwMDMiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE3MzEzNDU5MDksImV4cCI6MTczMTM0NzcwOX0.GBtX9a4rZEloW6EoQS-y5jp-Yju001Wfp1bGOAC5awo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"receiverAccountNumber\": \"000000002\",\r\n\"swiftCode\": \"ABCDEFGJ\",\r\n\"amount\": 6400,\r\n\"currency\": \"USD\",\r\n\"provider\": \"TransferCorp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/customer/createTransaction",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"customer",
+						"createTransaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/User/Logout(noToken)",
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:3001/User/Logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"User",
+						"Logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transactions(expiredToken )",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transactions",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transactions(invalidUser )",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transactions",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transaction/updateStatus/67323e975d5bacf09a71f7a9(employeeVerifyFromPending)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxYjE1Y2M4YmI0NTk3MDg1ZmM3OWEiLCJ1c2VybmFtZSI6IkVtcGxveWVlNiIsImFjY291bnROdW1iZXIiOiIxMDAwMDAwNiIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTczMTM0NTUwNSwiZXhwIjoxNzMxMzQ3MzA1fQ.8n-k2v3FmsVL8g0KQ1yBO8WDAuBeUiGsCeV7EGqQZY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Verified\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transaction/updateStatus/67323e975d5bacf09a71f7a9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transaction",
+						"updateStatus",
+						"67323e975d5bacf09a71f7a9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transaction/updateStatus/67323e975d5bacf09a71f7a9(employeeVerifyFromVerified)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxYjE1Y2M4YmI0NTk3MDg1ZmM3OWEiLCJ1c2VybmFtZSI6IkVtcGxveWVlNiIsImFjY291bnROdW1iZXIiOiIxMDAwMDAwNiIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTczMTM0NTUwNSwiZXhwIjoxNzMxMzQ3MzA1fQ.8n-k2v3FmsVL8g0KQ1yBO8WDAuBeUiGsCeV7EGqQZY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Verified\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transaction/updateStatus/67323e975d5bacf09a71f7a9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transaction",
+						"updateStatus",
+						"67323e975d5bacf09a71f7a9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transaction/updateStatus/67321494476399e77806c2dd(completePendingTransaction)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxYjE1Y2M4YmI0NTk3MDg1ZmM3OWEiLCJ1c2VybmFtZSI6IkVtcGxveWVlNiIsImFjY291bnROdW1iZXIiOiIxMDAwMDAwNiIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTczMTM0NjUyNiwiZXhwIjoxNzMxMzQ4MzI2fQ.tMHfBdN8-MpYjQxewgSksUyX0K9KpBpouGPzc_eVBkk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Complete\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transaction/updateStatus/67321494476399e77806c2dd",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transaction",
+						"updateStatus",
+						"67321494476399e77806c2dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transaction/updateStatus/67323e975d5bacf09a71f7a9(invalidTransactionUpdate)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxYjE1Y2M4YmI0NTk3MDg1ZmM3OWEiLCJ1c2VybmFtZSI6IkVtcGxveWVlNiIsImFjY291bnROdW1iZXIiOiIxMDAwMDAwNiIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTczMTM0NTUwNSwiZXhwIjoxNzMxMzQ3MzA1fQ.8n-k2v3FmsVL8g0KQ1yBO8WDAuBeUiGsCeV7EGqQZY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Complete\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transaction/updateStatus/67323ec15d5bacf09a71f7aa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transaction",
+						"updateStatus",
+						"67323ec15d5bacf09a71f7aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:3001/employee/transaction/updateStatus/67323e975d5bacf09a71f7a9(compledTransaction)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMxYjE1Y2M4YmI0NTk3MDg1ZmM3OWEiLCJ1c2VybmFtZSI6IkVtcGxveWVlNiIsImFjY291bnROdW1iZXIiOiIxMDAwMDAwNiIsInJvbGUiOiJlbXBsb3llZSIsImlhdCI6MTczMTM0NTUwNSwiZXhwIjoxNzMxMzQ3MzA1fQ.8n-k2v3FmsVL8g0KQ1yBO8WDAuBeUiGsCeV7EGqQZY4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3001/employee/transaction/updateStatus/67323ec15d5bacf09a71f7aa",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"employee",
+						"transaction",
+						"updateStatus",
+						"67323ec15d5bacf09a71f7aa"
 					]
 				}
 			},

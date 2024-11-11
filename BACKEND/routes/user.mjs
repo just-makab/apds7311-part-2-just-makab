@@ -112,4 +112,14 @@ router.post("/login", bruteforce.prevent, async (req, res) => {
     }
 });
 
+router.post("/logout", (req, res) => {
+    if (req.cookies?.refreshToken) {
+      // Clear the refresh token cookie to log the user out
+      res.clearCookie("refreshToken", { httpOnly: true, secure: true, sameSite: "strict" });
+      res.status(200).json({ message: "Logged Out" });
+    } else {
+      res.status(400).json({ message: "No user logged in" });
+    }
+  });
+
 export default router;
