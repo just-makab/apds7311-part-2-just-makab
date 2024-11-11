@@ -69,9 +69,9 @@ Method: POST
 ```
 Request Body:
 {
-    "name": "CustomerTest2",
+    "name": "CustomerTest3",
     "password": "P@ssw0rd",
-    "accountNumber": "00000002"
+    "accountNumber": "00000003"
 }
 
 ```
