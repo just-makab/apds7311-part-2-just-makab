@@ -34,6 +34,48 @@ Purpose: JSON Web Token (JWT) is used to securely transmit information between p
 - Expiration: Tokens expire after 15 minutes, requiring users to reauthenticate, which minimizes the risk of session hijacking.
 - MitM Defense: JWT tokens are signed and verified, ensuring that any unauthorized attempt to intercept or modify the token will be detected.
 
+## Authentication
+
+#Register
+
+Endpoint: /register
+Method: POST
+```
+Request Body:
+{
+    "name": "CustomerTest4",
+    "password": "P@ssw0rd",
+    "accountNumber": "00000004",
+    "idNumber": "0000000000004"
+}
+```
+# Login Employee
+
+Endpoint: /login
+Method: POST
+```
+Request Body:
+{
+    "name": "Employee6",
+    "accountNumber": "10000006"
+    "password": "P@ssw0rd",
+  
+}
+```
+# Login Customer
+
+Endpoint: /login
+Method: POST
+```
+Request Body:
+{
+    "name": "CustomerTest3",
+    "password": "P@ssw0rd",
+    "accountNumber": "00000003"
+}
+
+```
+
 ## Conclusion
 
 These security mechanisms work together to protect the International Payments Portal from a wide array of potential threats, ensuring that user data and transactions remain safe.
