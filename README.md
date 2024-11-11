@@ -36,7 +36,7 @@ Purpose: JSON Web Token (JWT) is used to securely transmit information between p
 
 ## Authentication
 
-Register
+#Register
 
 Endpoint: /register
 Method: POST
@@ -49,7 +49,7 @@ Request Body:
     "idNumber": "1000000000006"
 }
 ```
-Login
+# Login Employee
 
 Endpoint: /login
 Method: POST
@@ -62,6 +62,20 @@ Request Body:
   
 }
 ```
+# Login Customer
+
+Endpoint: /login
+Method: POST
+```
+Request Body:
+{
+    "name": "CustomerTest3",
+    "password": "P@ssw0rd",
+    "accountNumber": "00000003"
+}
+
+```
+
 ## Conclusion
 
 These security mechanisms work together to protect the International Payments Portal from a wide array of potential threats, ensuring that user data and transactions remain safe.
